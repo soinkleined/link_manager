@@ -25,12 +25,15 @@ body {
 
 /* Sidebar Base */
 #sidebar {
-  width: 220px;
-  background-color: var(--cm-bg);
-  color: var(--cm-text);
-  border-right: 1px solid var(--cm-border);
-  padding: 0.5rem !important;
+  width: 280px;
   transition: width 0.3s;
+  background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+  color: #ecf0f1;
+  font-size: 0.875rem;
+  position: relative;
+  overflow-x: visible;
+  white-space: normal;
+  z-index: 1000;
 }
 
 /* Sidebar Text Elements */
@@ -46,7 +49,11 @@ body {
 
 /* Collapsed Sidebar */
 #sidebar.collapsed-sidebar {
-  width: 50px !important;
+  width: 70px !important;
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #sidebar.collapsed-sidebar .link-text,
@@ -124,14 +131,18 @@ body {
 /* Sidebar Link Styles */
 .sidebar-link {
   text-decoration: none;
-  color: var(--cm-sidebar-text);
+  color: #ecf0f1;
   transition: all 0.2s;
-  padding: 3px 6px;
-  margin: 0;
-  border-radius: 3px;
+  padding: 4px 8px;
+  margin: 1px 0;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   gap: 0.375rem;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .sidebar-link:hover,
@@ -159,21 +170,25 @@ body {
 
 /* Subcategory styles */
 #sidebar .nav-item .nav-item {
-  margin-left: 0.75rem;
+  margin-left: 0.5rem;
   padding-left: 0;
 }
 
 #sidebar.collapsed-sidebar .nav-item .nav-item {
-  margin-left: 0;
-  padding-left: 0;
+  margin-left: 0 !important;
+  width: 100%;
+  min-width: 70px;
 }
 
 #sidebar .nav-item .nav-item .sidebar-link {
-  padding-left: 0.75rem;
+  padding-left: 0.5rem;
 }
 
 #sidebar.collapsed-sidebar .nav-item .nav-item .sidebar-link {
-  padding-left: 0.25rem;
+  padding: 0.5rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px;
 }
 
 #sidebar .nav-item {
@@ -181,8 +196,9 @@ body {
 }
 
 #sidebar .nav.flex-column {
-  margin-left: 0 !important;
-  padding-left: 0;
+  margin-left: 0.25rem;
+  width: 100%;
+  min-width: 280px;
 }
 
 #sidebar .nav.flex-column .nav-item {
@@ -327,4 +343,15 @@ body {
 
 .launch-button i {
   font-size: 0.875rem !important;
+}
+
+/* Headers */
+.category-header {
+  font-size: 0.95rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.subcategory-header {
+  font-size: 0.85rem !important;
+  margin-bottom: 0.25rem !important;
 } 
