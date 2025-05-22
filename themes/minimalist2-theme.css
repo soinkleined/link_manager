@@ -1,0 +1,234 @@
+/* Minimalist 2 Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --min2-bg: #fafafa;
+  --min2-text: #111111;
+  --min2-primary: #000000;
+  --min2-secondary: #666666;
+  --min2-border: #e5e5e5;
+  --min2-hover: #f5f5f5;
+  --min2-shadow: rgba(0, 0, 0, 0.03);
+  --min2-sidebar-text: #4a5568;
+  --min2-sidebar-icon: #718096;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--min2-bg);
+  color: var(--min2-text);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+#sidebar {
+  width: 280px;
+  transition: all 0.3s ease;
+  background-color: var(--min2-bg);
+  color: var(--min2-text);
+  border-right: 1px solid var(--min2-border);
+  padding: 2rem 1.5rem;
+}
+
+#sidebar.collapsed-sidebar {
+  width: 70px !important;
+  padding: 2rem 0.75rem;
+}
+
+#sidebar.collapsed-sidebar .link-text,
+#sidebar.collapsed-sidebar h5,
+#sidebar.collapsed-sidebar .btn-outline-light span,
+#sidebar.collapsed-sidebar label,
+#sidebar.collapsed-sidebar select {
+  display: none !important;
+}
+
+#sidebar.collapsed-sidebar .btn {
+  padding: 0.2rem;
+  width: 28px !important;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+#sidebar.collapsed-sidebar .nav-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.2rem;
+}
+
+#sidebar.collapsed-sidebar .sidebar-link {
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+#sidebar.collapsed-sidebar .sidebar-link i {
+  margin: 0 !important;
+  font-size: 0.9rem;
+}
+
+/* Tooltip styles */
+#sidebar .tooltip-text {
+  display: none;
+}
+
+#sidebar.collapsed-sidebar .tooltip-text {
+  display: inline-block;
+}
+
+#sidebar.collapsed-sidebar .nav-item .tooltip-text,
+#sidebar.collapsed-sidebar .btn .tooltip-text {
+  visibility: hidden;
+  background-color: var(--min2-text);
+  color: var(--min2-bg);
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px 8px;
+  position: absolute;
+  z-index: 1000;
+  left: 100%;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+#sidebar.collapsed-sidebar .nav-item:hover .tooltip-text,
+#sidebar.collapsed-sidebar .btn:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Sidebar text and icons */
+#sidebar .sidebar-link,
+#sidebar h5,
+#sidebar label,
+#sidebar select,
+#sidebar .btn-outline-light {
+  color: var(--min2-sidebar-text);
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+#sidebar .sidebar-link {
+  text-decoration: none;
+  color: var(--min2-sidebar-text);
+  transition: all 0.2s ease;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#sidebar .sidebar-link:hover,
+#sidebar .sidebar-link:focus {
+  background-color: var(--min2-hover);
+  color: var(--min2-primary);
+}
+
+#sidebar .sidebar-link:active {
+  background-color: var(--min2-hover);
+  color: var(--min2-primary);
+  transform: translateY(1px);
+}
+
+#sidebar h5 {
+  color: var(--min2-sidebar-text);
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+#sidebar label {
+  color: var(--min2-sidebar-text);
+  font-weight: 400;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+#sidebar .btn-outline-light {
+  margin-bottom: 0.2rem;
+  color: var(--min2-sidebar-text);
+  border-color: var(--min2-sidebar-text);
+  opacity: 0.7;
+}
+
+#sidebar .sidebar-link i {
+  color: var(--min2-sidebar-icon);
+  opacity: 0.7;
+}
+
+#sidebar .sidebar-link:hover i {
+  color: var(--min2-primary);
+  opacity: 1;
+}
+
+/* Adjust spacing for nav items */
+.nav-item {
+  margin-bottom: 0.1rem !important;
+}
+
+/* Adjust spacing for subcategories */
+.nav.flex-column.ms-4 {
+  margin-left: 0.75rem !important;
+}
+
+/* Adjust spacing for buttons */
+.btn {
+  margin-bottom: 0.1rem !important;
+}
+
+/* Theme selector dropdown arrow */
+#sidebar .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23111111' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  color: var(--min2-text);
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  border-color: var(--min2-border);
+}
+
+#sidebar .form-select:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23111111' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  border-color: var(--min2-primary);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Icon */
+.card-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  background-color: var(--min2-bg);
+  padding: 2px;
+  box-shadow: 0 1px 2px var(--min2-shadow);
+} 

@@ -1,0 +1,334 @@
+/* Star Trek Theme - Inspired by startrek.com */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+/* Base styles */
+body {
+  overflow-x: hidden;
+  font-family: 'Orbitron', 'Arial', sans-serif;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  background-image: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), 
+                    url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=1920');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+/* Sidebar Base */
+#sidebar {
+  width: 250px;
+  transition: width 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: #ffffff;
+  border-right: 1px solid rgba(0, 100, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+}
+
+/* Sidebar Text Elements */
+#sidebar .sidebar-link,
+#sidebar h5,
+#sidebar label,
+#sidebar select,
+#sidebar .btn-outline-light {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+/* Collapsed Sidebar */
+#sidebar.collapsed-sidebar {
+  width: 70px !important;
+  padding: 0.5rem;
+  overflow: visible !important;
+  z-index: 999999;
+}
+
+/* Hide text elements in collapsed state */
+#sidebar.collapsed-sidebar .link-text,
+#sidebar.collapsed-sidebar h5,
+#sidebar.collapsed-sidebar .btn-outline-light span,
+#sidebar.collapsed-sidebar label,
+#sidebar.collapsed-sidebar select {
+  display: none !important;
+}
+
+/* Collapsed Sidebar Buttons */
+#sidebar.collapsed-sidebar .btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 0;
+  position: relative;
+}
+
+/* Collapsed Sidebar Navigation Items */
+#sidebar.collapsed-sidebar .nav-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+#sidebar.collapsed-sidebar .nav.flex-column {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  overflow: visible !important;
+  z-index: 999999;
+}
+
+#sidebar.collapsed-sidebar .nav.flex-column .nav-item {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Collapsed Sidebar Links */
+#sidebar.collapsed-sidebar .sidebar-link {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 0;
+  position: relative;
+}
+
+#sidebar.collapsed-sidebar .sidebar-link i {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Tooltip Base Styles */
+.tooltip-text {
+  display: none;
+  position: absolute;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: #ffffff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Tooltip Positioning */
+#sidebar.collapsed-sidebar .nav-item .tooltip-text,
+#sidebar.collapsed-sidebar .btn .tooltip-text {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+/* Tooltip Visibility */
+#sidebar.collapsed-sidebar .tooltip-text {
+  display: inline-block;
+}
+
+#sidebar.collapsed-sidebar .nav-item:hover .tooltip-text,
+#sidebar.collapsed-sidebar .btn:hover .tooltip-text {
+  opacity: 1;
+}
+
+/* Sidebar Link Styles */
+.sidebar-link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  padding: 3px 6px;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 0;
+  position: relative;
+  overflow: visible;
+  font-size: 0.8rem;
+}
+
+.sidebar-link:hover,
+.sidebar-link:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #FFD700;
+}
+
+.sidebar-link:active {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #FFD700;
+  transform: translateY(1px);
+}
+
+/* Card Styles */
+.card {
+  background-color: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(0, 150, 255, 0.2);
+  transition: all 0.3s ease;
+  border-radius: 0;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card:hover {
+  border-color: rgba(0, 150, 255, 0.6);
+  box-shadow: 0 0 30px rgba(0, 150, 255, 0.2);
+  transform: translateY(-3px);
+  background-color: rgba(10, 10, 10, 0.98);
+}
+
+.card-title {
+  color: #ffffff;
+  font-weight: 600;
+  font-family: 'Orbitron', 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* Button Styles */
+.btn-outline-primary {
+  border: 1px solid rgba(0, 150, 255, 0.2);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: rgba(0, 150, 255, 0.1);
+  color: #0096ff;
+  border-color: rgba(0, 150, 255, 0.4);
+}
+
+.btn-outline-primary:active {
+  background-color: rgba(0, 150, 255, 0.2);
+  color: #0096ff;
+}
+
+/* Form Controls */
+.form-control, .form-select {
+  background-color: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(0, 150, 255, 0.2);
+  color: #ffffff;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: rgba(0, 150, 255, 0.4);
+  box-shadow: 0 0 0 2px rgba(0, 150, 255, 0.1);
+  background-color: rgba(10, 10, 10, 0.95);
+  color: #ffffff;
+}
+
+/* Page Title */
+#pageTitle {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+#pageTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: #0096ff;
+}
+
+/* Category Headers */
+.category-header, .subcategory-header {
+  color: #ffffff;
+  font-family: 'Orbitron', 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(0, 150, 255, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.category-header::after, .subcategory-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: #0096ff;
+}
+
+/* Card Icon */
+.card-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+  border-radius: 0;
+  background-color: rgba(10, 10, 10, 0.95);
+  padding: 2px;
+  border: 1px solid rgba(0, 150, 255, 0.2);
+}
+
+/* Launch Button */
+.launch-button {
+  font-size: 0.75rem !important;
+  padding: 0.4rem 0.75rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  background-color: var(--st-primary) !important;
+  color: var(--st-bg) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  white-space: nowrap !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.launch-button:hover {
+  background-color: var(--st-accent) !important;
+  transform: translateY(-1px) !important;
+}
+
+.launch-button i {
+  font-size: 0.875rem !important;
+} 
