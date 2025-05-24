@@ -1,0 +1,492 @@
+/* Ultra Compact Theme */
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #f5f7fa;
+  color: #1a2b3c;
+}
+
+/* Tooltip styles */
+#sidebar .tooltip-text {
+  display: none;
+}
+
+#sidebar.collapsed-sidebar .tooltip-text {
+  display: inline-block;
+}
+
+#sidebar.collapsed-sidebar .nav-item .tooltip-text,
+#sidebar.collapsed-sidebar .btn .tooltip-text {
+  visibility: hidden;
+  background-color: #1a2b3c;
+  color: #f5f7fa;
+  text-align: center;
+  border-radius: 2px;
+  padding: 2px 4px;
+  position: absolute;
+  z-index: 999999;
+  left: 100%;
+  margin-left: 6px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  font-size: 0.65rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+#sidebar.collapsed-sidebar .nav-item:hover .tooltip-text,
+#sidebar.collapsed-sidebar .btn:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ensure tooltips don't get cut off */
+#sidebar.collapsed-sidebar {
+  overflow: visible !important;
+}
+
+#sidebar.collapsed-sidebar .nav.flex-column {
+  overflow: visible !important;
+  z-index: 999999;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  transition: width 0.15s;
+  background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+  color: #f5f7fa;
+  font-size: 0.75rem;
+  z-index: 1000;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: normal;
+}
+
+#sidebar h5 {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+#sidebar label {
+  font-size: 0.7rem;
+  margin-bottom: 0.15rem;
+}
+
+#sidebar select {
+  font-size: 0.7rem;
+}
+
+#sidebar .sidebar-link {
+  font-size: 0.75rem;
+  padding: 2px 4px;
+  margin: 0.25px 0;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar .sidebar-link i {
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+
+#sidebar.collapsed-sidebar {
+  width: 70px !important;
+  min-width: 40px;
+}
+
+#sidebar.collapsed-sidebar .sidebar-link i {
+  margin: 0 !important;
+  font-size: 0.8rem;
+}
+
+#sidebar.collapsed-sidebar .link-text,
+#sidebar.collapsed-sidebar h5,
+#sidebar.collapsed-sidebar .btn-outline-light span,
+#sidebar.collapsed-sidebar label,
+#sidebar.collapsed-sidebar select {
+  display: none !important;
+}
+
+#sidebar.collapsed-sidebar .btn {
+  padding: 0.15rem;
+  width: 28px !important;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+#sidebar.collapsed-sidebar .nav-item {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 0.025rem !important;
+  width: 100%;
+}
+
+#sidebar.collapsed-sidebar .nav.flex-column {
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+  min-width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sidebar.collapsed-sidebar .nav-item .nav-item {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100%;
+  min-width: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#sidebar.collapsed-sidebar .sidebar-link {
+  padding: 0.2rem !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+}
+
+/* Subcategory styles with reduced padding */
+#sidebar .nav-item .nav-item {
+  margin-left: 0.2rem;
+  padding-left: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+#sidebar .nav-item .nav-item .sidebar-link {
+  padding-left: 0.2rem;
+  width: 100%;
+  min-width: 0;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar .nav-item .nav-item .sidebar-link i {
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+
+/* Additional sidebar containment */
+#sidebar .nav-item {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+#sidebar .nav.flex-column .nav-item {
+  margin-bottom: 0.025rem;
+  width: 100%;
+  min-width: 0;
+}
+
+#sidebar .nav.flex-column .nav-item .nav-item {
+  margin-bottom: 0.025rem;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Container for the entire content */
+#linkContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Section container for categories and subcategories */
+.section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Category and subcategory headers */
+.category-header {
+  font-size: 0.8rem !important;
+  margin-bottom: 0.5rem !important;
+  color: #1a2b3c;
+  font-weight: 600;
+  width: 100%;
+  padding-left: 0;
+}
+
+.subcategory-header {
+  font-size: 0.75rem !important;
+  margin-bottom: 0.35rem !important;
+  color: #4a5568;
+  font-weight: 500;
+  width: 100%;
+  padding-left: 0;
+}
+
+/* Grid system for fixed-width cards */
+.row {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Card column */
+.col-md-4 {
+  width: 200px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 0 0 200px !important;
+  max-width: 200px !important;
+}
+
+/* Card styles for more cards per row */
+.card {
+  margin: 0;
+  border-radius: 3px;
+  border: 1px solid #e1e4e8;
+  background-color: #ffffff;
+  transition: transform 0.15s, box-shadow 0.15s;
+  width: 200px;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Override Bootstrap's default margin */
+.mb-4 {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure proper spacing between sections */
+.section-container + .section-container {
+  margin-top: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.card-body {
+  padding: 0.75rem;
+}
+
+.card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+  color: #1a2b3c;
+}
+
+.card-text {
+  font-size: 0.75rem;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.card-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+}
+
+.card-content {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.card-content-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.card-actions .btn {
+  padding: 0.15rem 0.35rem;
+  font-size: 0.7rem;
+  line-height: 1;
+  border-radius: 2px;
+}
+
+.card-actions .btn i {
+  font-size: 0.7rem;
+}
+
+.card-actions .btn-launch {
+  background-color: #3498db;
+  color: white;
+  border: none;
+}
+
+.card-footer {
+  padding: 0.5rem 0.75rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e1e4e8;
+}
+
+.card-badge {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.35rem;
+  border-radius: 2px;
+}
+
+/* Launch Button - Make it cover the entire card */
+.launch-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Show the launch icon */
+.launch-button i {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover .launch-button i {
+  opacity: 1;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  padding: 0.4rem 0.75rem;
+  margin: 0.15rem 0;
+  border-radius: 0;
+  position: relative;
+  overflow: visible;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-link:hover,
+.sidebar-link:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.sidebar-link:active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+#sidebar .nav-item .nav-item {
+  margin-left: 0.2rem;
+  padding-left: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+#sidebar .nav-item .nav-item .sidebar-link {
+  padding-left: 0.2rem;
+  width: 100%;
+  min-width: 0;
+}
+
+#sidebar.collapsed-sidebar .nav-item .nav-item {
+  margin-left: 0;
+  padding-left: 0;
+  width: 100%;
+  min-width: 40px;
+}
+
+#sidebar.collapsed-sidebar .nav-item .nav-item .sidebar-link {
+  padding-left: 0.1rem;
+  width: 28px;
+  min-width: 28px;
+}
+
+/* Additional sidebar containment */
+#sidebar .nav-item {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+#sidebar .nav.flex-column .nav-item {
+  margin-bottom: 0.025rem;
+  width: 100%;
+  min-width: 0;
+}
+
+#sidebar .nav.flex-column .nav-item .nav-item {
+  margin-bottom: 0.025rem;
+  width: 100%;
+  min-width: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.flex-grow-1 {
+  margin-left: 220px;
+  transition: margin-left 0.15s ease;
+  width: calc(100% - 220px);
+}
+
+#sidebar.collapsed-sidebar + .flex-grow-1 {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+} 

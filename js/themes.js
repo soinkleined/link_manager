@@ -76,6 +76,11 @@ const themes = [
     name: 'Compact Ultra',
     file: 'themes/compact-ultra-theme.css',
     description: 'Ultra-compact layout with Space Grotesk font, optimized for maximum information density'
+  },
+  {
+    name: 'Compact Ultra Link',
+    file: 'themes/compact-ultra-link-theme.css',
+    description: 'Ultra-compact layout with clickable cards and Space Grotesk font'
   }
 ];
 
