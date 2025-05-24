@@ -1,43 +1,47 @@
-# Utility Scripts
 
-This directory contains utility scripts for the Link Manager application.
+# Bookmark Converter Script
 
-## Bookmark Converter
+This Python script converts a Netscape-format HTML bookmarks file into two JavaScript files:
 
-The `bookmark_converter.py` script converts browser bookmarks (in HTML format) into the required JavaScript files for the Link Manager application.
+- `links.js`: An array of link objects with metadata.
+- `categories.js`: A hierarchical structure of categories and subcategories.
 
-### Requirements
+## Features
 
-```bash
-pip install beautifulsoup4
+- Accepts input from a local HTML file or a URL.
+- Extracts link names, URLs, categories, subcategories, and optional icons.
+- Assigns default icons using Bootstrap icon class names.
+- Outputs in easy-to-use JS format for web integration.
+
+## Usage
+
+```
+python bookmark_converter.py --input-file bookmarks.html --generate-links --generate-categories
 ```
 
-### Usage
+Or using a URL:
 
-```bash
-python bookmark_converter.py path/to/bookmarks.html --output-dir path/to/output
+```
+python bookmark_converter.py --input-url https://example.com/bookmarks.html --generate-links
 ```
 
-### Features
+## Arguments
 
-- Converts browser bookmarks to categories.js and links.js
-- Preserves category and subcategory structure
-- Automatically generates favicon URLs
-- Handles nested bookmark folders
-- Supports UTF-8 encoding
-- Creates output directory if it doesn't exist
+- `--input-file`: Path to the local bookmarks HTML file.
+- `--input-url`: URL of the bookmarks HTML file.
+- `--links-out`: Output file path for `links.js`. (Default: `links.js`)
+- `--categories-out`: Output file path for `categories.js`. (Default: `categories.js`)
+- `--generate-links`: Generate the `links.js` output.
+- `--generate-categories`: Generate the `categories.js` output.
 
-### Output Files
+## Requirements
 
-1. `categories.js`: Contains category and subcategory structure
-2. `links.js`: Contains all bookmarks with metadata
+- Python 3.x
+- `beautifulsoup4`
+- `requests`
 
-### Example
+Install dependencies with:
 
-```bash
-# Convert bookmarks and output to the current directory
-python bookmark_converter.py ~/Downloads/bookmarks.html
-
-# Convert bookmarks and output to a specific directory
-python bookmark_converter.py ~/Downloads/bookmarks.html --output-dir ./data
+```
+pip install beautifulsoup4 requests
 ```
