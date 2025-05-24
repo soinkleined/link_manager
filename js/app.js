@@ -19,8 +19,10 @@ function populateThemeSelector() {
     console.error('Theme selector element not found');
     return;
   }
+  console.log('Available themes:', themes); // Debug log
   selector.innerHTML = '';
   themes.forEach(function(theme) {
+    console.log('Adding theme to selector:', theme); // Debug log
     var option = document.createElement('option');
     option.value = theme.file;
     option.textContent = theme.name;
@@ -40,13 +42,14 @@ function changeTheme(themeFile) {
   
   // Check if theme file exists in themes array
   var themeExists = themes.some(theme => theme.file === themeFile);
+  console.log('Theme exists in array:', themeExists); // Debug log
   if (!themeExists) {
     console.error('Theme file not found in themes array:', themeFile);
     return;
   }
   
   try {
-    stylesheet.href = 'themes/' + themeFile;
+    stylesheet.href = themeFile; // Use the full path from the theme object
     currentTheme = themeFile;
     localStorage.setItem('linkDashboardTheme', themeFile);
     console.log('Theme changed successfully to:', themeFile);
@@ -59,10 +62,14 @@ function loadTheme() {
   var savedTheme = localStorage.getItem('linkDashboardTheme');
   if (savedTheme) {
     console.log('Loading saved theme:', savedTheme);
+    // If the saved theme doesn't have the 'themes/' prefix, add it
+    if (!savedTheme.startsWith('themes/')) {
+      savedTheme = 'themes/' + savedTheme;
+    }
     changeTheme(savedTheme);
   } else {
     console.log('No saved theme found, using default');
-    changeTheme('default-theme.css');
+    changeTheme('themes/default-theme.css');
   }
 }
 
@@ -171,16 +178,20 @@ function createLinkCard(link) {
   
   return `
     <div class="col-md-4 mb-4">
-      <div class="card h-100 p-3 d-flex flex-column justify-content-between">
-        <div class="d-flex justify-content-between align-items-start">
-          <img src="${iconUrl}" alt="Icon" class="card-icon" onerror="this.src='${ICON_CONFIG.defaultIcon}'">
-          <a href="${link.url}" target="_blank" class="btn btn-outline-primary launch-button">
-            Launch <i class="bi bi-box-arrow-up-right ms-1"></i>
-          </a>
-        </div>
-        <div class="flex-grow-1 my-2">
-          <h5 class="card-title">${link.name}</h5>
-          <p class="card-text" style="white-space: pre-line;">${description}</p>
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-content">
+            <img src="${iconUrl}" alt="Icon" class="card-icon" onerror="this.src='${ICON_CONFIG.defaultIcon}'">
+            <div class="card-content-text">
+              <h5 class="card-title">${link.name}</h5>
+              <p class="card-text" style="white-space: pre-line;">${description}</p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="${link.url}" target="_blank" class="btn btn-outline-primary launch-button">
+              Launch <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>`;
@@ -253,26 +264,29 @@ function renderLinks(search = '') {
 
         if (subcategoryLinks.length > 0) {
           container.innerHTML += `
-            <div class="col-12 mb-2">
-              <h5 class="subcategory-header">${selectedSubcategory}</h5>
+            <div class="section-container">
+              <div class="col-12 mb-2">
+                <h5 class="subcategory-header">${selectedSubcategory}</h5>
+              </div>
+              <div class="row">
+                ${subcategoryLinks.map(link => createLinkCard(link)).join('')}
+              </div>
             </div>`;
-
-          subcategoryLinks.forEach(link => {
-            container.innerHTML += createLinkCard(link);
-          });
         }
       } else {
         container.innerHTML += `
-          <div class="col-12 mb-3">
-            <h4 class="category-header">${category}</h4>
-          </div>`;
+          <div class="section-container">
+            <div class="col-12 mb-3">
+              <h4 class="category-header">${category}</h4>
+            </div>`;
 
         // Render direct links
         var directLinks = filterLinksBySearch(groupedLinks[category].direct, search);
         if (directLinks.length > 0) {
-          directLinks.forEach(link => {
-            container.innerHTML += createLinkCard(link);
-          });
+          container.innerHTML += `
+            <div class="row">
+              ${directLinks.map(link => createLinkCard(link)).join('')}
+            </div>`;
         }
 
         // Render subcategories and their links
@@ -286,13 +300,14 @@ function renderLinks(search = '') {
             container.innerHTML += `
               <div class="col-12 mb-2">
                 <h5 class="subcategory-header">${subcategory}</h5>
+              </div>
+              <div class="row">
+                ${subcategoryLinks.map(link => createLinkCard(link)).join('')}
               </div>`;
-
-            subcategoryLinks.forEach(link => {
-              container.innerHTML += createLinkCard(link);
-            });
           }
         });
+        
+        container.innerHTML += `</div>`;
       }
     }
   });

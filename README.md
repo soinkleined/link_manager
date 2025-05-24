@@ -26,10 +26,21 @@ A simple, elegant link management application that helps you organize and access
 The application comes with multiple themes:
 
 - **Default Theme**: Clean, modern design with spacious layout
-- **Compact Theme**: Space-efficient design with responsive rows that scale to screen width
-- **Dark Theme**: Dark mode for reduced eye strain
+- **Chrome Theme**: Google Chrome-inspired design with Material Design elements
+- **Brutal Theme**: Bold brutalism design with sharp edges and raw elements
+- **Retro Theme**: Nostalgic retro computing theme
+- **Star Wars Theme**: Theme inspired by the Star Wars universe
+- **Star Wars Light**: Light Side theme inspired by the Jedi Order with green accents
+- **Star Wars Dark**: Dark Side theme inspired by the Sith Order with red accents
+- **Star Trek Theme**: Theme inspired by the Star Trek universe
 - **High Contrast**: Enhanced accessibility
-- **And more...**
+- **Compact Themes**: Various compact layouts optimized for efficiency:
+  - **Compact Horizontal**: Space-efficient layout optimized for smaller screens
+  - **Compact Modern**: Clean and efficient layout with Inter font
+  - **Compact Warm**: Cozy and efficient layout with Plus Jakarta Sans font
+  - **Compact Cool**: Fresh and efficient layout with Outfit font
+  - **Compact Dark**: Sleek and efficient dark layout with DM Sans font
+  - **Compact Ultra**: Ultra-compact layout with Space Grotesk font
 
 ### Compact Theme Features
 
@@ -107,6 +118,7 @@ python utility_scripts/bookmark_converter.py path/to/bookmarks.html --output-dir
 ```
 
 The converter will:
+
 - Preserve your category structure
 - Automatically detect favicons
 - Generate appropriate icon URLs

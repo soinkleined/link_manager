@@ -1,4 +1,8 @@
 /* Default Theme */
+html, body {
+  height: 100%;
+}
+
 body {
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
@@ -24,13 +28,16 @@ body {
   border-radius: 4px;
   padding: 4px 6px;
   position: absolute;
-  z-index: 1001;
+  z-index: 999999;
   left: 100%;
   margin-left: 10px;
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 0.75rem;
   white-space: nowrap;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #sidebar.collapsed-sidebar .nav-item:hover .tooltip-text,
@@ -39,20 +46,64 @@ body {
   opacity: 1;
 }
 
+/* Ensure tooltips don't get cut off */
+#sidebar.collapsed-sidebar {
+  overflow: visible !important;
+}
+
+#sidebar.collapsed-sidebar .nav.flex-column {
+  overflow: visible !important;
+  z-index: 999999;
+}
+
+#sidebar.collapsed-sidebar .nav-item {
+  overflow: visible !important;
+}
+
+#sidebar.collapsed-sidebar .sidebar-link {
+  overflow: visible !important;
+}
+
 .vh-100 {
   height: 100vh;
 }
 
+/* Fixed sidebar positioning */
 #sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   width: 280px;
   transition: width 0.3s;
   background: linear-gradient(180deg, #3a5db2 0%, #42a1ff 100%);
   color: #f0f8ff;
   font-size: 0.875rem;
-  position: relative;
-  overflow-x: visible;
-  white-space: normal;
   z-index: 1000;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: normal;
+}
+
+/* Main content area needs padding to account for fixed sidebar */
+.flex-grow-1 {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+}
+
+/* Collapsed sidebar adjustments */
+#sidebar.collapsed-sidebar {
+  width: 70px !important;
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sidebar.collapsed-sidebar + .flex-grow-1 {
+  margin-left: 70px;
+  width: calc(100% - 70px);
 }
 
 #sidebar h5 {
@@ -81,14 +132,6 @@ body {
 #sidebar.collapsed-sidebar .sidebar-link i {
   margin: 0 !important;
   font-size: 0.9rem;
-}
-
-#sidebar.collapsed-sidebar {
-  width: 70px !important;
-  min-width: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #sidebar.collapsed-sidebar .link-text,
@@ -160,16 +203,16 @@ body {
 
 #sidebar .nav.flex-column {
   margin-left: 0.25rem;
-  width: 100%;
-  min-width: 280px;
+  width: calc(100% - 0.5rem);
+  min-width: 0;
 }
 
 #sidebar .nav.flex-column .sidebar-link {
   padding-left: 0.5rem;
   width: 100%;
   min-width: 0;
-  overflow: visible;
-  text-overflow: clip;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #sidebar.collapsed-sidebar .nav.flex-column .sidebar-link {
@@ -196,6 +239,10 @@ body {
 .subcategory-header {
   font-size: 0.85rem !important;
   margin-bottom: 0.25rem !important;
+}
+
+.link-title {
+  margin-top: 0.25rem;
 }
 
 header .form-control {
@@ -288,4 +335,40 @@ header .form-control::placeholder {
   margin-bottom: 0.1rem;
   width: 100%;
   min-width: 0;
+}
+
+/* Launch Button */
+.card-actions {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+}
+
+.btn-outline-primary.launch-button {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  background-color: transparent;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.btn-outline-primary.launch-button:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-outline-primary.launch-button i {
+  font-size: 0.875rem;
+}
+
+.card-content-text {
+  flex: 1;
+  min-width: 0;
+  margin-top: 0.5rem;
 }

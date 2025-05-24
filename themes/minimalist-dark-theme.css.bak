@@ -1,0 +1,206 @@
+/* Minimalist Dark Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --minimalist-bg: #1a1a1a;
+  --minimalist-text: #ffffff;
+  --minimalist-border: #333333;
+  --minimalist-hover: #2a2a2a;
+  --minimalist-active: #333333;
+  --minimalist-accent: #3b82f6;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--minimalist-bg);
+  color: var(--minimalist-text);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+/* Sidebar Base */
+#sidebar {
+  width: 220px;
+  min-width: 220px;
+  transition: width 0.15s ease;
+  background-color: var(--minimalist-bg);
+  color: var(--minimalist-text);
+  border-right: 1px solid var(--minimalist-border);
+  padding: 0.5rem;
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Main Content Adjustment */
+.flex-grow-1 {
+  margin-left: 220px;
+  transition: margin-left 0.15s ease;
+  width: calc(100% - 220px);
+}
+
+/* Sidebar Text Elements */
+#sidebar .sidebar-link,
+#sidebar h5,
+#sidebar label,
+#sidebar select,
+#sidebar .btn-outline-light {
+  color: var(--minimalist-text);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: -0.01em;
+}
+
+/* Collapsed Sidebar */
+#sidebar.collapsed-sidebar {
+  width: 70px !important;
+  min-width: 70px !important;
+  padding: 0.5rem 0;
+  overflow: visible !important;
+}
+
+/* Collapsed Main Content */
+#sidebar.collapsed-sidebar ~ .flex-grow-1 {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+}
+
+/* Hide text elements in collapsed state */
+#sidebar.collapsed-sidebar .link-text,
+#sidebar.collapsed-sidebar h5,
+#sidebar.collapsed-sidebar .btn-outline-light span,
+#sidebar.collapsed-sidebar label,
+#sidebar.collapsed-sidebar select {
+  display: none !important;
+}
+
+/* Collapsed Sidebar Navigation Items */
+#sidebar.collapsed-sidebar .nav-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.25rem 0;
+  padding: 0;
+  width: 100%;
+}
+
+#sidebar.collapsed-sidebar .nav.flex-column {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  z-index: 999999;
+}
+
+#sidebar.collapsed-sidebar .nav.flex-column .nav-item {
+  margin: 0.25rem 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+/* Collapsed Sidebar Links */
+#sidebar.collapsed-sidebar .sidebar-link {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  padding: 0 !important;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  position: relative;
+}
+
+#sidebar.collapsed-sidebar .sidebar-link i {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sidebar Link Styles */
+.sidebar-link {
+  text-decoration: none;
+  color: var(--minimalist-text);
+  transition: all 0.2s ease;
+  padding: 0.4rem 0.75rem;
+  margin: 0.15rem 0;
+  border-radius: 0;
+  position: relative;
+  overflow: visible;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-link:hover,
+.sidebar-link:focus {
+  background-color: var(--minimalist-hover);
+  color: var(--minimalist-text);
+}
+
+.sidebar-link:active {
+  background-color: var(--minimalist-active);
+  color: var(--minimalist-text);
+}
+
+.sidebar-link i {
+  color: var(--minimalist-text);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.sidebar-link:hover i {
+  opacity: 1;
+}
+
+/* Tooltip Base Styles */
+.tooltip-text {
+  display: none;
+  position: absolute;
+  z-index: 999999;
+  background-color: var(--minimalist-bg);
+  color: var(--minimalist-text);
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: 1px solid var(--minimalist-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip Positioning */
+#sidebar.collapsed-sidebar .nav-item .tooltip-text,
+#sidebar.collapsed-sidebar .btn .tooltip-text {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+/* Tooltip Visibility */
+#sidebar.collapsed-sidebar .tooltip-text {
+  display: inline-block;
+}
+
+#sidebar.collapsed-sidebar .nav-item:hover .tooltip-text,
+#sidebar.collapsed-sidebar .btn:hover .tooltip-text {
+  opacity: 1;
+}
+
+/* ... rest of the existing styles ... */ 

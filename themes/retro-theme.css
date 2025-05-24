@@ -223,3 +223,31 @@ body {
   padding: 2px;
   border: 2px solid #8b4513;
 }
+
+/* Launch Button */
+.launch-button {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  background-color: #8b4513;
+  color: #ffffff;
+  border: 2px solid #8b4513;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.launch-button:hover {
+  background-color: #6b3410;
+  border-color: #6b3410;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #8b4513;
+}
+
+.launch-button i {
+  font-size: 0.875rem;
+  margin-left: 0.25rem;
+}
