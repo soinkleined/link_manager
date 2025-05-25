@@ -12,6 +12,7 @@ A simple, elegant link management application that helps you organize and access
 - **Icon Support**: Custom icons for categories, subcategories, and links
 - **Bookmark Import**: Import your browser bookmarks with automatic favicon detection
 - **Command Line Interface**: Quick access to links via fuzzy search (see [Scripts](scripts/README.md))
+- **Image Management**: Local image storage for icons and favicons
 
 ## Usage
 
@@ -21,6 +22,8 @@ A simple, elegant link management application that helps you organize and access
 4. Click the launch button to open links
 5. Toggle the sidebar using the collapse button
 6. Change themes using the theme selector
+
+![Main Interface](img/main-interface.png)
 
 ## Themes
 
@@ -43,6 +46,8 @@ The application comes with multiple themes:
   - **Compact Dark**: Sleek and efficient dark layout with DM Sans font
   - **Compact Ultra**: Ultra-compact layout with Space Grotesk font
 
+![Theme Examples](img/themes.png)
+
 ### Compact Theme Features
 
 - Full-width responsive rows
@@ -50,6 +55,8 @@ The application comes with multiple themes:
 - Space-efficient layout
 - Optimized for smaller screens
 - Single-line descriptions on mobile
+
+![Compact Theme](img/compact-theme.png)
 
 ## Customization
 
@@ -97,12 +104,32 @@ The application supports multiple types of icons:
    - Use Bootstrap Icons (e.g., `bi-folder`, `bi-search`)
    - Default icons are provided if none specified
    - Custom icons can be added via CSS
+   - Local images from the `img` directory
 
 2. **Link Icons**:
    - Custom icon URLs
    - Automatic favicon detection
    - Fallback to default icon
    - Support for various icon sizes
+   - Local images from the `img` directory
+
+### Image Directory
+
+The `img` directory contains:
+- Custom icons for categories and subcategories
+- Favicons for links
+- Default fallback icons
+- Images used by both the web interface and command-line tool
+
+To use local images:
+1. Place your images in the `img` directory
+2. Reference them in your links or categories using the relative path:
+   ```javascript
+   {
+     name: "Link Name",
+     icon: "img/custom-icon.png"
+   }
+   ```
 
 ### Adding Themes
 
@@ -133,7 +160,14 @@ The application includes a command-line interface for quick access to your links
 python3 scripts/link_search.py
 ```
 
-This provides a fuzzy-search interface using `fzf`, allowing you to quickly find and open links from your terminal. For more details, see the [Scripts documentation](scripts/README.md).
+This provides a fuzzy-search interface using `fzf`, allowing you to quickly find and open links from your terminal. The CLI tool also supports:
+- Local image previews from the `img` directory
+- Custom icons for categories and links
+- Fallback to default icons when custom ones aren't available
+
+For more details, see the [Scripts documentation](scripts/README.md).
+
+![CLI Interface](img/cli-interface.png)
 
 ## Browser Support
 
