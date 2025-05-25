@@ -23,7 +23,7 @@ A simple, elegant link management application that helps you organize and access
 5. Toggle the sidebar using the collapse button
 6. Change themes using the theme selector
 
-![Main Interface](img/main-interface.png)
+![Browser Interface](img/browser.png)
 
 ## Themes
 
@@ -160,14 +160,9 @@ The application includes a command-line interface for quick access to your links
 python3 scripts/link_search.py
 ```
 
-This provides a fuzzy-search interface using `fzf`, allowing you to quickly find and open links from your terminal. The CLI tool also supports:
-- Local image previews from the `img` directory
-- Custom icons for categories and links
-- Fallback to default icons when custom ones aren't available
+This provides a fuzzy-search interface using `fzf`, allowing you to quickly find and open links from your terminal. For more details, see the [Scripts documentation](scripts/README.md).
 
-For more details, see the [Scripts documentation](scripts/README.md).
-
-![CLI Interface](img/cli-interface.png)
+![FZF Interface](img/fzf.png)
 
 ## Browser Support
 
