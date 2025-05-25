@@ -12,7 +12,6 @@ A simple, elegant link management application that helps you organize and access
 - **Icon Support**: Custom icons for categories, subcategories, and links
 - **Bookmark Import**: Import your browser bookmarks with automatic favicon detection
 - **Command Line Interface**: Quick access to links via fuzzy search (see [Scripts](scripts/README.md))
-- **Image Management**: Local image storage for icons and favicons
 
 ## Usage
 
@@ -58,4 +57,94 @@ The application comes with multiple themes:
 
 ### Adding Links
 
-Edit the `
+Edit the `js/links.js` file to add or modify links:
+
+```javascript
+const links = [
+  {
+    name: "Link Title",
+    url: "https://example.com",
+    description: "Link description",
+    category: "Category Name",
+    subcategory: "Subcategory Name",
+    icon: "https://example.com/icon.png" // Optional custom icon
+  }
+];
+```
+
+### Modifying Categories
+
+Edit the `js/categories.js` file to modify categories:
+
+```javascript
+const categories = [
+  {
+    name: "Category Name",
+    icon: "bi-folder", // Bootstrap icon class
+    subcategories: [
+      {
+        name: "Subcategory 1",
+        icon: "bi-folder2" // Bootstrap icon class
+      }
+    ]
+  }
+];
+```
+
+### Icon Support
+
+The application supports multiple types of icons:
+
+1. **Category/Subcategory Icons**:
+   - Use Bootstrap Icons (e.g., `bi-folder`, `bi-search`)
+   - Default icons are provided if none specified
+   - Custom icons can be added via CSS
+
+2. **Link Icons**:
+   - Custom icon URLs
+   - Automatic favicon detection
+   - Fallback to default icon
+   - Support for various icon sizes
+
+### Adding Themes
+
+1. Create a new CSS file in the `themes` directory
+2. Follow the theme specification in `THEME_SPECIFICATION.md`
+3. Add the theme to the theme selector in `index.html`
+
+## Importing Bookmarks
+
+Use the bookmark converter to import your browser bookmarks:
+
+```bash
+python utility_scripts/bookmark_converter.py path/to/bookmarks.html --output-dir path/to/output
+```
+
+The converter will:
+
+- Preserve your category structure
+- Automatically detect favicons
+- Generate appropriate icon URLs
+- Create the required JavaScript files
+
+## Command Line Interface
+
+The application includes a command-line interface for quick access to your links:
+
+```bash
+python3 scripts/link_search.py
+```
+
+This provides a fuzzy-search interface using `fzf`, allowing you to quickly find and open links from your terminal. For more details, see the [Scripts documentation](scripts/README.md).
+
+![FZF Interface](img/fzf.png)
+
+## Browser Support
+
+- Modern browsers with ES6 JavaScript support
+- CSS Grid and Flexbox support
+- Local Storage API support
+
+## License
+
+MIT License - Feel free to use and modify for your needs.
