@@ -11,6 +11,7 @@ A simple, elegant link management application that helps you organize and access
 - **Collapsible Sidebar**: Save space by collapsing the navigation panel
 - **Icon Support**: Custom icons for categories, subcategories, and links
 - **Bookmark Import**: Import your browser bookmarks with automatic favicon detection
+- **Command Line Interface**: Quick access to links via fuzzy search (see [Scripts](scripts/README.md))
 
 ## Usage
 
@@ -123,6 +124,16 @@ The converter will:
 - Automatically detect favicons
 - Generate appropriate icon URLs
 - Create the required JavaScript files
+
+## Command Line Interface
+
+The application includes a command-line interface for quick access to your links:
+
+```bash
+python3 scripts/link_search.py
+```
+
+This provides a fuzzy-search interface using `fzf`, allowing you to quickly find and open links from your terminal. For more details, see the [Scripts documentation](scripts/README.md).
 
 ## Browser Support
 
