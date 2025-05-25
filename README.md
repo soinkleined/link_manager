@@ -109,7 +109,7 @@ The application supports multiple types of icons:
 ### Adding Themes
 
 1. Create a new CSS file in the `themes` directory
-2. Follow the theme specification in `THEME_SPECIFICATION.md`
+2. Follow the theme specification in [themes/README.md](themes/README.md)
 3. Add the theme to the theme selector in `index.html`
 
 ## Importing Bookmarks
